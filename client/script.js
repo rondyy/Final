@@ -7,12 +7,14 @@ var multForVirus = 15
 var multForGet= 8
 var multForHuman = 10
 var multForPredator = 7
+var multForTree = 15
 var grassColor = "#09SDE17"
 var grassEaterColor = "yellow"
 var predatorColor = "black"
 var virusColor = "purple"
 var getColor = "blue"
 var humanColor = "red"
+var treeArr = "pink"
 
 function setup() {
     frameRate(5);
@@ -51,12 +53,14 @@ function onColorChange() {
         virusColor = "#A49AF6"
         getColor = "#10009A"
         humanColor = "#42EF64"
+        treeColor = "#837471"
         multForPredator = 10;
         multForVirus = 14;
         multForGet = 8;
         multForHuman = 13;
         multForGrass = 5;
         multForGrassEater = 8;
+        multForTree = 14;
         
     }
     else if (event.target.id == "winter"){ 
@@ -66,12 +70,14 @@ function onColorChange() {
         virusColor = "#731D1D"
         getColor = "#0A27B4"
         humanColor = "#660C57"
+        treeColor = "#8C5439"
         multForGrass = 13;
         multForPredator = 18;
         multForVirus = 9;
         multForGet = 20;
         multForHuman = 12;
         multForGrassEater = 16;
+        multForTree = 20;
     }
     let data = {
         
@@ -82,7 +88,8 @@ function onColorChange() {
         multForVirus: multForVirus,
         multForPredator : multForPredator,
         multForGrassEater : multForGrassEater,
-        multForGrass: multForGrass
+        multForGrass: multForGrass,
+        multForTree: multForTree
     }
     socket.on("matrix", drawMatrix);
     socket.emit("afterClick", data);
@@ -130,6 +137,12 @@ function drawMatrix(data) {
             else if (matrix[y][x] == 6) {
 
                 fill(humanColor);
+                rect(x * side, y * side, side, side);
+            }
+
+            else if (matrix[y][x] == 7) {
+
+                fill(treeColor);
                 rect(x * side, y * side, side, side);
             }
 

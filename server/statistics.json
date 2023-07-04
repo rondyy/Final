@@ -1,8 +1,8 @@
 {
-  "grasses": 695,
-  "grassEaters": 3,
+  "grasses": 372,
+  "grassEaters": 8,
   "predators": 1,
-  "viruses": 37,
+  "viruses": 19,
   "gets": 2,
-  "humans": 7
+  "humans": 2
 }
